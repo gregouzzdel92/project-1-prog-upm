@@ -3,9 +3,9 @@
 
 using namespace std;
 
-// fct to run the experimentation with given parameters
-
-// Function to ask the user for parameters of the experimentation
+// fct for the parameters of the experimentation (asking the user) and
+// displaying them Function to ask the user for parameters of the
+// experimentation
 Parametres ask_parameters() {
   Parametres p;
   string vector_type_str;
@@ -101,3 +101,88 @@ void show_parameters(const Parametres &p) {
 vector<vector<int>> test_a_supp_table_vectors(const Parametres &p) {
   return generate_table_vectors(p);
 };
+
+// fct to run the experimentation with given parameters
+vector<mean_results>
+run_experimentation(const vector<vector<int>> &table_vectors) {
+  int n = table_vectors.size();
+
+  mean_results mean_insertion = {0, 0, 0};
+  mean_results mean_selection = {0, 0, 0};
+  mean_results mean_quick = {0, 0, 0};
+
+  for (const auto &v : table_vectors) {
+
+    // INSERTION
+    {
+      vector<int> v_copy = v;
+      long long comp = 0, mouv = 0;
+
+      auto start = chrono::high_resolution_clock::now();
+
+      insertion_sort(v_copy, comp, mouv);
+
+      auto end = chrono::high_resolution_clock::now();
+
+      auto duration =
+          chrono::duration_cast<chrono::microseconds>(end - start).count();
+
+      mean_insertion.time += duration;
+      mean_insertion.comparaisons += comp;
+      mean_insertion.mouvements += mouv;
+    }
+
+    // SELECTION
+    {
+      vector<int> v_copy = v;
+      long long comp = 0, mouv = 0;
+
+      auto start = chrono::high_resolution_clock::now();
+
+      selection_sort(v_copy, comp, mouv);
+
+      auto end = chrono::high_resolution_clock::now();
+
+      auto duration =
+          chrono::duration_cast<chrono::microseconds>(end - start).count();
+
+      mean_selection.time += duration;
+      mean_selection.comparaisons += comp;
+      mean_selection.mouvements += mouv;
+    }
+
+    // QUICK
+    {
+      vector<int> v_copy = v;
+      long long comp = 0, mouv = 0;
+
+      auto start = chrono::high_resolution_clock::now();
+
+      quick_sort(v_copy, comp, mouv);
+
+      auto end = chrono::high_resolution_clock::now();
+
+      auto duration =
+          chrono::duration_cast<chrono::microseconds>(end - start).count();
+
+      mean_quick.time += duration;
+      mean_quick.comparaisons += comp;
+      mean_quick.mouvements += mouv;
+    }
+  }
+
+  // Calculating the mean results for each algorithm
+  mean_insertion.time /= n;
+  mean_insertion.comparaisons /= n;
+  mean_insertion.mouvements /= n;
+
+  mean_selection.time /= n;
+  mean_selection.comparaisons /= n;
+  mean_selection.mouvements /= n;
+
+  mean_quick.time /= n;
+  mean_quick.comparaisons /= n;
+  mean_quick.mouvements /= n;
+
+  return {mean_insertion, mean_selection, mean_quick};
+}

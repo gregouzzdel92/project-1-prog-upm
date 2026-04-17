@@ -11,7 +11,7 @@ programme: $(OBJ)
 main.o: main.cpp display.h experimentation.h
 	$(CXX) $(CXXFLAGS) -c main.cpp
 
-display.o: display.cpp display.h
+display.o: display.cpp display.h experimentation.h
 	$(CXX) $(CXXFLAGS) -c display.cpp
 
 experimentation.o: experimentation.cpp experimentation.h table_generation.h algorithm.h

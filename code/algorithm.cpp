@@ -5,7 +5,8 @@ using namespace std;
 // Implementation of the algorithms to compare
 
 // 1. Algorithm 1: insertion sort algorithm
-void insertion_sort(std::vector<int> &tab, int &comparaisons, int &mouvements) {
+void insertion_sort(std::vector<int> &tab, long long &comparaisons,
+                    long long &mouvements) {
   int n = tab.size();
   for (int i = 1; i < n; i++) { // start with 2nd elem
     int key = tab[i];           // elem to sort
@@ -28,7 +29,8 @@ void insertion_sort(std::vector<int> &tab, int &comparaisons, int &mouvements) {
 }
 
 // 2. Algorithm 2: selection sort algorithm
-void selection_sort(std::vector<int> &tab, int &comparaisons, int &mouvements) {
+void selection_sort(std::vector<int> &tab, long long &comparaisons,
+                    long long &mouvements) {
   int n = tab.size();
   for (int i = 0; i < n - 1; i++) {
     int min_idx = i;
@@ -44,12 +46,13 @@ void selection_sort(std::vector<int> &tab, int &comparaisons, int &mouvements) {
 }
 
 // 3. Algorithm 3: quick sort algorithm
-void quick_sort(std::vector<int> &tab, int &comparaisons, int &mouvements) {
+void quick_sort(std::vector<int> &tab, long long &comparaisons,
+                long long &mouvements) {
   quick_sort_rec(tab, 0, tab.size() - 1, comparaisons, mouvements);
 }
 
 void quick_sort_rec(std::vector<int> &tab, int left, int right,
-                    int &comparaisons, int &mouvements) {
+                    long long &comparaisons, long long &mouvements) {
 
   if (left >= right)
     return;

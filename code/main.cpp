@@ -15,7 +15,10 @@ int main() {
 
   // 2. call fct experimentation() to run the experimentation
   // (experimentation.cpp)
+  auto results = run_experimentation(table_vector);
+
   // 3. call fct display() to display results (display.cpp)
+  display_results(results);
 
   return 0;
 }

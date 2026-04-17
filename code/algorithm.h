@@ -6,10 +6,13 @@
 #include <vector>
 
 // Function prototypes
-void insertion_sort(std::vector<int> &tab, int &comparaisons, int &mouvements);
-void selection_sort(std::vector<int> &tab, int &comparaisons, int &mouvements);
-void quick_sort(std::vector<int> &tab, int &comparaisons, int &mouvements);
+void insertion_sort(std::vector<int> &tab, long long &comparaisons,
+                    long long &mouvements);
+void selection_sort(std::vector<int> &tab, long long &comparaisons,
+                    long long &mouvements);
+void quick_sort(std::vector<int> &tab, long long &comparaisons,
+                long long &mouvements);
 void quick_sort_rec(std::vector<int> &tab, int left, int right,
-                    int &comparaisons, int &mouvements);
+                    long long &comparaisons, long long &mouvements);
 
 #endif // ALGORITHM_H
