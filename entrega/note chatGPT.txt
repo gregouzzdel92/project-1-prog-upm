@@ -1,0 +1,177 @@
+Évaluation basée sur les deux documents fournis :
+
+* critères de qualité du code 
+* énoncé du projet 
+
+---
+
+# 1) Respect de l’énoncé du projet
+
+## ✔ Points conformes
+
+* **Programme en C++** → conforme à l’exigence ANSI C/C++ 
+* **Structure multi-fichiers** (`.cpp` + `.h`) → conforme
+* **Organisation logique** :
+
+  * `main.cpp` = orchestration
+  * modules séparés : `algorithm`, `display`, `experimentation`, `table_generation`
+* **Pipeline expérimental présent** :
+
+  1. Paramètres utilisateur
+  2. Génération des données
+  3. Exécution de l’expérimentation
+  4. Affichage des résultats
+
+➡️ Cela correspond bien aux phases demandées (analyse + expérimentation) 
+
+## ⚠️ Points à vérifier / améliorer
+
+* **Mesures expérimentales** :
+
+  * L’énoncé exige explicitement :
+    *comparaisons, mouvements, temps* 
+    → Vérifier que ces métriques sont bien mesurées dans `algorithm.cpp` ou `experimentation.cpp`
+* **Cas expérimentaux** :
+
+  * pire cas / meilleur cas / cas moyen
+    → pas visible ici → à confirmer
+* **Fiabilité expérimentale** :
+
+  * répétitions / moyenne / variance non visibles
+    → souvent attendu pour une note maximale
+
+---
+
+# 2) Structuration (critère majeur)
+
+## ✔ Très bon
+
+* Séparation claire en modules (excellent point)
+* Utilisation de headers associés (`.h` ↔ `.cpp`)
+* Responsabilités bien réparties
+
+➡️ Conforme aux attentes : modularité, réutilisabilité 
+
+## ⚠️ À améliorer
+
+* Vérifier :
+
+  * absence de duplication de code
+  * niveau de couplage entre modules
+* Vérifier l’usage de :
+
+  * `const`
+  * encapsulation (si classes utilisées)
+
+---
+
+# 3) Lisibilité
+
+## ✔ Points positifs
+
+* Code simple et compréhensible dans `main.cpp`
+* Noms globalement explicites (`run_experimentation`, `display_results`, etc.)
+
+## ⚠️ Points critiques (souvent pénalisés)
+
+D’après les critères  :
+
+* ❗ **Commentaires probablement insuffisants**
+
+  * pas de header de fichier visible
+  * pas de documentation des fonctions
+* ❗ **Variables**
+
+  * noms comme `p`, `results` → trop courts pour une note maximale
+* ❗ **Documentation**
+
+  * chaque fonction devrait expliquer :
+
+    * paramètres
+    * retour
+    * rôle
+
+---
+
+# 4) Portabilité
+
+## ✔ Conforme
+
+* Utilisation de C++ standard
+* Pas de dépendances non portables visibles
+
+## ⚠️ À vérifier
+
+* Compilation en mode strict (`-Wall -Wextra -std=c++...`)
+* Types utilisés correctement (ex: `int` vs `size_t`)
+
+---
+
+# 5) Style
+
+## ✔ Bon niveau général
+
+* Code structuré
+* Flux logique clair
+
+## ⚠️ Améliorations attendues pour note maximale
+
+* Uniformiser :
+
+  * indentation
+  * conventions de nommage
+* Éviter :
+
+  * `using namespace std;` (souvent pénalisé en style avancé)
+* Ajouter :
+
+  * séparation claire des blocs
+  * cohérence globale
+
+---
+
+# 6) Évaluation globale
+
+## Niveau estimé
+
+* **Fonctionnel : ✔ solide**
+* **Structuration : ✔ très bonne**
+* **Lisibilité : ⚠ moyen**
+* **Style : ⚠ moyen à bon**
+* **Expérimentation : ⚠ à confirmer**
+
+---
+
+# Verdict
+
+👉 **Projet globalement bien construit**
+👉 **Mais pas encore au niveau “note maximale”**
+
+---
+
+# Actions prioritaires pour maximiser la note
+
+1. **Ajouter documentation complète**
+
+   * headers de fichiers
+   * commentaires de fonctions
+
+2. **Améliorer l’expérimentation**
+
+   * mesures détaillées (comparaisons, mouvements, temps)
+   * plusieurs cas (meilleur / pire / moyen)
+   * répétitions + moyenne
+
+3. **Améliorer lisibilité**
+
+   * noms de variables explicites
+   * cohérence de style
+
+4. **Vérifier rigueur technique**
+
+   * pas de warnings compilation
+   * types corrects
+
+---
+
+Si souhaité, analyse ligne par ligne de fichiers critiques (ex : `algorithm.cpp` ou `experimentation.cpp`) pour identifier précisément les points qui coûtent des points.
