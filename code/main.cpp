@@ -11,7 +11,8 @@ int main() {
 
   vector<vector<int>> table_vector = test_a_supp_table_vectors(p);
   cout << endl << endl << "Generated vectors:" << endl;
-  display_vectors(table_vector);
+  display_vectors(table_vector); // for testing : show the generated vectors,
+                                 // can be commented out if not needed
 
   // 2. call fct experimentation() to run the experimentation
   // (experimentation.cpp)

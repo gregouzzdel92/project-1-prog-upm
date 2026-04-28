@@ -9,7 +9,6 @@
 #include <string>
 #include <vector>
 
-
 struct mean_results {
   double time;
   double comparaisons;

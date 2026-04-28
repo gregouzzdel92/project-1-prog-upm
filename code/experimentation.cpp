@@ -3,9 +3,7 @@
 
 using namespace std;
 
-// fct for the parameters of the experimentation (asking the user) and
-// displaying them Function to ask the user for parameters of the
-// experimentation
+// fct for the parameters of the experimentation (asking the user)
 Parametres ask_parameters() {
   Parametres p;
   string vector_type_str;
@@ -97,7 +95,8 @@ void show_parameters(const Parametres &p) {
   return;
 }
 
-// Function to test the generation of table vectors (for debugging)
+// Function to test the generation of table vectors (for debugging and for
+// diplaying the generated vectors)
 vector<vector<int>> test_a_supp_table_vectors(const Parametres &p) {
   return generate_table_vectors(p);
 };

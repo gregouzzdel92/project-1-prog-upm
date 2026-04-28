@@ -12,7 +12,7 @@ void insertion_sort(std::vector<int> &tab, long long &comparaisons,
     int key = tab[i];           // elem to sort
     int j = i - 1;
 
-    // Move elements of tab[0..i-1], that are greater than key,
+    // Move elem of tab[0..i-1], that are greater than key,
     // to one position ahead of their current position
     while (j >= 0 && tab[j] > key) {
       comparaisons++;
@@ -21,7 +21,7 @@ void insertion_sort(std::vector<int> &tab, long long &comparaisons,
       j = j - 1;
     }
     if (j >= 0) {
-      comparaisons++; // for last comparison that fails
+      comparaisons++; // for last comparison that fail
     }
     tab[j + 1] = key;
     mouvements++;
